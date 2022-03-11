@@ -8,13 +8,14 @@ import (
 	"os"
 )
 
+// TODO: Install and setup MUX
 // TODO: Routing according to the project requirements
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 	}
 
-	message := quasar_fire_core.GetMessage([]string{"asd", "def"}, []string{"asd", "def"})
+	message, err := quasar_fire_core.GetMessage([]string{"asd", "def"}, []string{"asd", "def"})
 	fmt.Fprintf(w, message)
 }
 
